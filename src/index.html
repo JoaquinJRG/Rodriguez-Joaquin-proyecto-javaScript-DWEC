@@ -14,43 +14,44 @@
 
    <!--Header-->
    <header>
-        <h1><a href="index.html">Store API</a></h1>
+        <h1><a href="index.html">Store API 🛒</a></h1>
         <nav>
-            <ul id="categories">
-
-            </ul>
+            <ul id="categories"></ul>
         </nav>
         <div>
             <a href="">Contacto</a>
             <a class="sesionBtn" href="./html/login.html">Iniciar Sesión</a>
             <a class="sesionBtn" style="display: none;">Cerrar Sesión</a>
-            <button id="carritoBtn"><i data-feather="shopping-cart"></i></button>
+            <a href=""><i data-feather="heart"></i></a>
+            <a href="html/carrito.html" id="carritoBtn"><i data-feather="shopping-cart"></i></a>
         </div>
     </header>
 
     <!--Main-->
     <main>
-
-        <article>
-            <ul id="list"></ul>
+        <article id="config">
+            <section>
+                <p>Ordenar:</p>
+                <select name="sort" id="sort">
+                    <option value="asc">Ascendente</option>
+                    <option value="desc">Descendente</option>
+                </select>
+            </section>
+            <section>
+                <p>Vista:</p>
+                <button id="tableBtn">
+                    <i data-feather="grid"></i>
+                </button>
+                <button id="listBtn">
+                    <i data-feather="list"></i>
+                </button>
+            </section>
         </article>
-        <article></article>
-        
+        <article id="products">
+            <section id="list"></section>
+            <section id="table"></section>
+        </article>
     </main>
-
-    <!--Footer-->
-    <footer></footer>
-
-    <div style="display: none;">
-        <i data-feather="shopping-cart"></i>
-        <i data-feather="heart"></i>
-        <i data-feather="thumbs-up"></i>
-        <i data-feather="thumbs-down"></i>
-        <i data-feather="grid"></i>
-        <i data-feather="home"></i>
-        <i data-feather="user"></i>
-        
-    </div>
-
+    
 </body>
 </html>
