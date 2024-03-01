@@ -3,14 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/principal.scss">
+    <link rel="stylesheet" href="styles/principal.scss">
     <title>Proyecto JavaScript</title>
     <script src="../node_modules/feather-icons/dist/feather.min.js"></script>
-    <script src="js/app.js" defer></script>
+    <script src="js/principal.js" defer></script>
+    <script src="js/mapa.js" defer></script>
+    
 </head>
 <body>
-    <div>
-        <i data-feather="circle"></i>
+
+   <!--Header-->
+   <header>
+        <h1><a href="index.html">Store API</a></h1>
+        <nav>
+            <ul id="categories">
+
+            </ul>
+        </nav>
+        <div>
+            <a href="">Contacto</a>
+            <a class="sesionBtn" href="./html/login.html">Iniciar Sesión</a>
+            <a class="sesionBtn" style="display: none;">Cerrar Sesión</a>
+            <button id="carritoBtn"><i data-feather="shopping-cart"></i></button>
+        </div>
+    </header>
+
+    <!--Main-->
+    <main>
+
+        <article>
+            <ul id="list"></ul>
+        </article>
+        <article></article>
+        
+    </main>
+
+    <!--Footer-->
+    <footer></footer>
+
+    <div style="display: none;">
+        <i data-feather="shopping-cart"></i>
+        <i data-feather="heart"></i>
+        <i data-feather="thumbs-up"></i>
+        <i data-feather="thumbs-down"></i>
+        <i data-feather="grid"></i>
+        <i data-feather="home"></i>
+        <i data-feather="user"></i>
+        
     </div>
+
 </body>
 </html>

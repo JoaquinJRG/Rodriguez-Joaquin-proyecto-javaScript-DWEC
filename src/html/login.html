@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/principal.scss">
+    <title>Proyecto JavaScript</title>
+    <script src="../../node_modules/feather-icons/dist/feather.min.js"></script>
+    <script src="../js/login.js" defer></script>
+</head>
+<body>
+
+   <!--Header--> 
+    <header>
+        <h1><a href="../index.html">Store API </a></h1>
+    </header>
+
+    <article id="login">
+        <section id="registrar" class="login-form" style="display: none;">
+            <h1>Registrar</h1>
+            <form>
+                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Apellidos">
+                <input type="tel">
+                <input type="text" placeholder="DNI">
+                <input type="number" placeholder="edad">
+                <input type="submit" value="Registrar">
+            </form>
+            <p> --- Ya tengo una cuenta --- </p>
+            <button id="showLoginBtn">Iniciar sesión</button>
+        </section>
+
+        <section id="iniciar" class="login-form">
+            <h1>Iniciar Sesión</h1>
+            <form>
+                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Apellidos">
+                <input type="tel">
+                <input type="text" placeholder="DNI">
+                <input type="number" placeholder="edad">
+                <input type="submit" value="Registrar">
+            </form>
+            <p> --- ¿Eres nuevo cliente? --- </p>
+            <button id="showRegisterBtn">Crear cuenta</button>
+        </section>
+    </article>
+
+    <!--Footer-->
+    <footer>
+
+    </footer>
+
+
+</body>
+</html>
