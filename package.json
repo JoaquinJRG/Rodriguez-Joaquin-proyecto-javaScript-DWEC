@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Proyecto final JavaScript",
   "scripts": {
-    "parcel:desarrollo": "parcel src/index.html --dist-dir desarrollo",
+    "parcel:desarrollo": "parcel src/index.html src/html/contacto.html --dist-dir desarrollo",
     "parcel:produccion": "parcel build src/index.html --public-url ./ --dist-dir produccion",
     "limpia": "rimraf desarrollo produccion .parcel-cache",
     "des": "npm run parcel:desarrollo",

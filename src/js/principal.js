@@ -40,19 +40,58 @@ document.querySelector("#sort").addEventListener("change", () => {
     loadProducts();
 }); 
 
-//Like dislike y favorito
+//Like dislike,favorito y añadir al carrito
 document.getElementById("products").addEventListener("click", (event) => {
     switch (event.target.id) {
         case "like": 
 
+            if (event.target.classList.contains("liked")) {
+                likeCounter--; 
+                document.getElementById("likeCounter").innerHTML = likeCounter; 
+                event.target.classList.toggle("liked"); 
+            } else {
+                likeCounter++; 
+                document.getElementById("likeCounter").innerHTML = likeCounter; 
+                event.target.classList.toggle("liked"); 
+            }
+
             break;
         case "dislike": 
-
+            if (event.target.classList.contains("disliked")) {
+                dislikeCounter--; 
+                document.getElementById("dislikeCounter").innerHTML = dislikeCounter; 
+                event.target.classList.toggle("disliked"); 
+            } else {
+                dislikeCounter++; 
+                document.getElementById("dislikeCounter").innerHTML = dislikeCounter; 
+                event.target.classList.toggle("disliked"); 
+            }
             break; 
         case "favorite": 
             
+            if (checkSesion()) {
+
+            } else {
+                alert("Tienes que iniciar sesión"); 
+            }
+
             break;  
+        case "addCart":
+
+            if (checkSesion()) {
+
+            } else {
+                alert("Tienes que iniciar sesión"); 
+            }
+
+            break; 
+        
     }
+}); 
+
+//Cerrar sesión
+document.getElementById("logoutBtn").addEventListener("click", () => {
+    
 }); 
 
 
@@ -116,10 +155,10 @@ function showProducts(products) {
                         <i id='like' data-feather="thumbs-up"></i>
                         <i id='dislike' data-feather="thumbs-down"></i>
                         <i id='favorite' data-feather="heart"></i>
+                        <i id="addCart" data-feather="shopping-cart"></i>
                     </div>
                     <div>
-                        <button>Añadir</button>
-                        <a href="detalles.html?prod=${prod.id}">Más detalles</a>
+                        <a class="detallesBtn" href="html/detalles.html?prod=${prod.id}">Más detalles</a>
                     </div>
                 `;
 
@@ -135,11 +174,24 @@ function deleteProd() {
     document.querySelector("#list").innerHTML = ""; 
 }
 
+function checkSesion() {
+    if (localStorage.getItem("sesion")) {
+        document.getElementById("logoutBtn").style.display = "block";
+        document.getElementById("loginBtn").style.display = "none"; 
+        return true; 
+    } else {
+        document.getElementById("logoutBtn").style.display = "none";
+        document.getElementById("loginBtn").style.display = "block"; 
+        return false; 
+    }
+}
 
 //------------------------------------------
 
-
+//Comprobar inicio de sesión
+checkSesion(); 
 //Cargar categoría header
 loadCategories();
 //Cargar productos
 loadProducts(); 
+
