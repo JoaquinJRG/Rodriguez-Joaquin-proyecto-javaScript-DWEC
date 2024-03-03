@@ -117,7 +117,10 @@ function showProducts(products) {
                         <i id='dislike' data-feather="thumbs-down"></i>
                         <i id='favorite' data-feather="heart"></i>
                     </div>
-                    <button>Añadir al carrito</button>
+                    <div>
+                        <button>Añadir</button>
+                        <a href="detalles.html?prod=${prod.id}">Más detalles</a>
+                    </div>
                 `;
 
         section.appendChild(div);

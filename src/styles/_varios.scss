@@ -96,7 +96,7 @@ header {
                 background-color: #eceff1;
                 transition: all 0.3s ease 0s;
     
-                &:focus{
+                &:enabled{
                     border: solid 3px RGB(0, 123, 157);
                 }
                 
