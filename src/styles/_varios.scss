@@ -256,7 +256,7 @@ header {
     }
 }
 
-[name="favorite"], [name="like"], [name="addCart"] {
+[name="favorite"], [name="like"], [name="dislike"], [name="addCart"] {
     cursor: pointer;
     transition: all 0.3s;
 
@@ -375,4 +375,6 @@ header {
 }
 
 
-
+.animation {
+    transform: rotate(360deg);
+}
