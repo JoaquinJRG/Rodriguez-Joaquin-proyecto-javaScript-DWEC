@@ -1,7 +1,8 @@
 //Variables 
 const URL_USER = 'https://fakestoreapi.com/users';
 const registrar = document.querySelector("#registrar"); 
-const iniciar = document.querySelector("#iniciar"); 
+const iniciar = document.querySelector("#iniciar");
+const mensaje = document.getElementById("mensaje");  
 
 //Input registrar
 let nombre = document.getElementById("nombre");
@@ -42,14 +43,16 @@ document.querySelector("#showRegisterBtn").addEventListener("click", () => {
 //Validar nombre 
 nombre.addEventListener("input", () => {
 
-    if (nombre.value.length < 5 || nombre.value == "" ) {
-        nombre.setCustomValidity("El nombre debe tener al menos 5 caracteres"); 
+    if (nombre.value.length < 3 || nombre.value == "" ) {
+        mensaje.innerHTML = "El nombre debe tener al menos 3 caracteres"; 
+        nombre.setCustomValidity("El nombre debe tener al menos 3 caracteres"); 
         apellido.disabled = true; 
         clave.disabled = true; 
         telefono.disabled = true; 
         dni.disabled = true; 
         edad.disabled = true; 
     } else {
+        mensaje.innerHTML = ""; 
         nombre.setCustomValidity(""); 
         apellido.disabled = false; 
     }
@@ -60,12 +63,14 @@ nombre.addEventListener("input", () => {
 apellido.addEventListener("input", () => {
 
     if (apellido.value.length < 10 || apellido.value == "") {
+        mensaje.innerHTML = "El apellido debe tener al menos 10 caracteres"; 
         apellido.setCustomValidity("El apellido debe tener al menos 10 caracteres"); 
         clave.disabled = true; 
         telefono.disabled = true; 
         dni.disabled = true; 
         edad.disabled = true; 
     } else {
+        mensaje.innerHTML = ""; 
         apellido.setCustomValidity(""); 
         clave.disabled = false; 
     }
@@ -77,11 +82,13 @@ clave.addEventListener("input", () => {
     let regexClave = /^(?=.*\d).{8,}$/; 
 
     if ( !regexClave.test(clave.value) || clave.value == "" ) {
+        mensaje.innerHTML = "La clave debe contener un número y más de 8 caracteres"; 
         clave.setCustomValidity("La clave debe contener un número y más de 8 caracteres"); 
         telefono.disabled = true; 
         dni.disabled = true; 
         edad.disabled = true; 
     } else {
+        mensaje.innerHTML = ""; 
         clave.setCustomValidity(""); 
         telefono.disabled = false; 
     }
@@ -93,11 +100,13 @@ telefono.addEventListener("input", () => {
     let regexTel = /^\d{9}$/; 
 
     if ( !regexTel.test(telefono.value) || telefono.value == "" ) {
+        mensaje.innerHTML = "Formato de teléfono no válido"; 
         telefono.setCustomValidity("Formato de teléfono no válido"); 
         dni.disabled = true; 
         edad.disabled = true; 
 
     } else {
+        mensaje.innerHTML = ""; 
         telefono.setCustomValidity(""); 
         dni.disabled = false; 
     }
@@ -109,10 +118,12 @@ dni.addEventListener("input", () => {
     let regexDni = /^\d{8}[a-zA-Z]$/; 
 
     if ( !regexDni.test(dni.value) || dni.value == "" ) {
+        mensaje.innerHTML = "DNI no válido"; 
         dni.setCustomValidity("DNI no válido"); 
         edad.disabled = true; 
 
     } else {
+        mensaje.innerHTML = ""; 
         dni.setCustomValidity(""); 
         edad.disabled = false; 
     }
@@ -126,6 +137,7 @@ edad.addEventListener("input", () => {
         valido = false; 
 
     } else {
+        mensaje.innerHTML = ""; 
         dni.setCustomValidity(""); 
         valido = true; 
     }
