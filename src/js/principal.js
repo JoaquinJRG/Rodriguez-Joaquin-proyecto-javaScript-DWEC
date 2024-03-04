@@ -40,9 +40,10 @@ document.querySelector("#sort").addEventListener("change", () => {
     loadProducts();
 }); 
 
-//Like dislike,favorito y añadir al carrito
+//Like dislike y añadir al carrito
 document.getElementById("products").addEventListener("click", (event) => {
-    switch (event.target.id) {
+
+    switch (event.target.getAttribute("name")) {
         case "like": 
 
             if (event.target.classList.contains("liked")) {
@@ -66,19 +67,17 @@ document.getElementById("products").addEventListener("click", (event) => {
                 document.getElementById("dislikeCounter").innerHTML = dislikeCounter; 
                 event.target.classList.toggle("disliked"); 
             }
-            break; 
-        case "favorite": 
-            
-            if (checkSesion()) {
-
-            } else {
-                alert("Tienes que iniciar sesión"); 
-            }
-
             break;  
         case "addCart":
 
             if (checkSesion()) {
+                let sesion = JSON.parse( localStorage.getItem("sesion") ); 
+
+                if (!sesion.carrito.includes(event.target.id)) {
+                    event.target.classList.add("added"); 
+                    sesion.carrito.push(event.target.id); 
+                    localStorage.setItem("sesion", JSON.stringify(sesion)); 
+                }
 
             } else {
                 alert("Tienes que iniciar sesión"); 
@@ -91,7 +90,18 @@ document.getElementById("products").addEventListener("click", (event) => {
 
 //Cerrar sesión
 document.getElementById("logoutBtn").addEventListener("click", () => {
+    let sesion = JSON.parse( localStorage.getItem("sesion") ); 
+    let usuario = JSON.parse( localStorage.getItem(sesion.nombre));
+
+    //Guardar datos carrito
+    if (usuario) {
+
+    }
     
+    //Eliminar sesión
+    localStorage.removeItem("sesion"); 
+    checkSesion(); 
+
 }); 
 
 
@@ -152,10 +162,9 @@ function showProducts(products) {
                     <p>${prod.title}</p> 
                     <p>${prod.price} €</p>
                     <div>   
-                        <i id='like' data-feather="thumbs-up"></i>
-                        <i id='dislike' data-feather="thumbs-down"></i>
-                        <i id='favorite' data-feather="heart"></i>
-                        <i id="addCart" data-feather="shopping-cart"></i>
+                        <i name='like' data-feather="thumbs-up"></i>
+                        <i name='dislike' data-feather="thumbs-down"></i>
+                        <i id='${prod.id}' name='addCart' data-feather="shopping-cart"></i>
                     </div>
                     <div>
                         <a class="detallesBtn" href="html/detalles.html?prod=${prod.id}">Más detalles</a>
